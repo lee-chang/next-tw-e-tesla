@@ -17,7 +17,7 @@ export default function PageNotFound() {
       </div>
 
       <div className="px-5 mx-5">
-        <Image  src="/images/404.svg" alt="Startman" width={550} height={550} className="p-5 sm:p-0"/>
+        <Image  src="/imgs/starman_750x750.png" alt="Startman" width={550} height={550} className="p-5 sm:p-0"/>
       </div>
     </div>
   );
