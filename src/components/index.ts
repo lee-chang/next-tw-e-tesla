@@ -1,3 +1,4 @@
+export * from './product/quantity-selector/QuantitySelector';
 export { default as SizeSelector } from './product/size-selector/SizeSelector';
 export { default as ProductGrid } from './products/product-grid/ProductGrid';
 export { default as ProductGridItem } from './products/product-grid/ProductGridItem';

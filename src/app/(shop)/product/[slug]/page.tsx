@@ -1,4 +1,4 @@
-import { SizeSelector } from "@/components";
+import { QuantitySelector, SizeSelector } from "@/components";
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
 import Image from "next/image";
@@ -45,6 +45,7 @@ export default function ProductPage({ params }: Props) {
         {/* Selector de Tallas */}
         <SizeSelector selectedSize={product.sizes[0]} avalibleSize={product.sizes} />
         {/* Selector de Cantidad */}
+        <QuantitySelector  quantity={2}/>
 
         {/* Boton add to cart */}
         <button className="btn-primary my-5">Agregar al carrito</button>
