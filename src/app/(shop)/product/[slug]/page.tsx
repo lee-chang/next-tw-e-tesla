@@ -1,4 +1,9 @@
-import { QuantitySelector, SizeSelector } from "@/components";
+import {
+  ProductMobileSlideShow,
+  QuantitySelector,
+  SizeSelector,
+} from "@/components";
+import { ProductSlideShow } from "@/components";
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
 import Image from "next/image";
@@ -20,32 +25,39 @@ export default function ProductPage({ params }: Props) {
   if (!product) return notFound();
 
   return (
-    <div className="mt-5 mb-20 grid md:grid-cols-3 gap-3">
+    <div className="mt-5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3">
       {/* SlideShow */}
+
       <div className="col-span-1 md:col-span-2">
-        <Image
-          src={`/products/${product.images[0]}`}
-          alt={product.title}
-          width={500}
-          height={500}
+        {/* Mobile SlideShow */}
+        <ProductMobileSlideShow
+          images={product.images}
+          title={product.title}
+          className="block md:hidden"
+        />
+
+        {/* Desktop SlideShow */}
+        <ProductSlideShow
+          images={product.images}
+          title={product.title}
+          className="hidden md:block"
         />
       </div>
 
       <div className="col-span-1 px-5">
         {/* Detalles */}
-        <div className="col-span-1">
-          <h1
-            className={`${titleFont.className} antialiased font-bold text-xl`}
-          >
-            {product.title}
-          </h1>
-          <p className="text-lg mb-5">$ {product.price}</p>
-        </div>
+        <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
+          {product.title}
+        </h1>
+        <p className="text-lg mb-5">$ {product.price}</p>
 
         {/* Selector de Tallas */}
-        <SizeSelector selectedSize={product.sizes[0]} avalibleSize={product.sizes} />
+        <SizeSelector
+          selectedSize={product.sizes[0]}
+          avalibleSize={product.sizes}
+        />
         {/* Selector de Cantidad */}
-        <QuantitySelector  quantity={2}/>
+        <QuantitySelector quantity={2} />
 
         {/* Boton add to cart */}
         <button className="btn-primary my-5">Agregar al carrito</button>
